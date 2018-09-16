@@ -21,7 +21,7 @@ class Payjs
 
         $this->mchid = $config['mchid'];
         $this->key   = $config['key'];
-        $api_url     = $config['api_url'] ?: 'https://payjs.cn/api/';
+        $api_url     = isset($config['api_url']) ? $config['api_url'] : 'https://payjs.cn/api/';
 
         $this->api_url_native  = $api_url . 'native';
         $this->api_url_cashier = $api_url . 'cashier';
