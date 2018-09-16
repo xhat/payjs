@@ -1,6 +1,6 @@
 {
     "name": "xhat/payjs",
-    "description": "Package For PAYJS",
+    "description": "本项目是基于 PAYJS 的 API 开发的 Composer Package，可直接用于生产环境 https://payjs.cn",
     "type": "library",
     "license": "MIT",
     "authors": [
