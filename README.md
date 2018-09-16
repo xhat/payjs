@@ -51,7 +51,7 @@ $config = [
 $payjs = new Payjs($config);
 ```
 
-其次开始使用:
+其次开始使用
 
 - 扫码支付
 
