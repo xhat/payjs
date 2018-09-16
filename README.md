@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://laravel-excel.maatwebsite.nl">
     <img src="https://payjs.cn/static/images/logo.png" width=80 />
-  </a>
 </p>
 <h2 align="center">PAYJS Wechat Payment Composer Package</h2>
 <p align="center">
