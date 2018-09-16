@@ -1,0 +1,20 @@
+{
+    "name": "xhat/payjs",
+    "description": "Package For PAYJS",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "andy",
+            "email": "andy@popfeng.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xhat\\Payjs\\": "src/"
+        }
+    }
+}
