@@ -100,7 +100,7 @@ class Payjs
     // 异步通知接收
     public function notify()
     {
-        $data = request()->all();
+        $data = $_POST;
         if ($this->checkSign($data) === true) {
             return $data;
         } else {
