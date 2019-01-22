@@ -14,6 +14,7 @@ class Payjs
     private $api_url_user;
     private $api_url_info;
     private $api_url_bank;
+    private $api_url_jsapi;
 
     public function __construct($config = null)
     {
@@ -31,6 +32,7 @@ class Payjs
         $this->api_url_user    = $api_url . 'user';
         $this->api_url_info    = $api_url . 'info';
         $this->api_url_bank    = $api_url . 'bank';
+        $this->api_url_jsapi   = $api_url . 'jsapi';
     }
 
     // 扫码支付
@@ -38,6 +40,15 @@ class Payjs
     {
         $this->url = $this->api_url_native;
         return $this->post($data);
+    }
+
+    // JSAPI 模式
+    public function jsapi(array $data)
+    {
+        $this->url = $this->api_url_jsapi;
+        $data      = $this->sign($data);
+        $url       = $this->url . '?' . http_build_query($data);
+        return $url;
     }
 
     // 收银台模式
