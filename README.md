@@ -166,7 +166,7 @@ $notify_info = $payjs->notify();
 ```
 
 ## 更新日志
-Version 1.0.1
+Version 1.4
 
 ## 安全相关
 如果您在使用过程中发现各种 bug，请积极反馈，我会尽早修复
