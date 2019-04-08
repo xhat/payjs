@@ -123,7 +123,7 @@ class Payjs
     public function sign(array $data)
     {
         $data['mchid'] = $this->mchid;
-        array_filter($data);
+        $data = array_filter($data);
         ksort($data);
         $data['sign'] = strtoupper(md5(urldecode(http_build_query($data) . '&key=' . $this->key)));
         return $data;
@@ -134,7 +134,7 @@ class Payjs
     {
         $in_sign = $data['sign'];
         unset($data['sign']);
-        array_filter($data);
+        $data = array_filter($data);
         ksort($data);
         $sign = strtoupper(md5(urldecode(http_build_query($data) . '&key=' . $this->key)));
         return $in_sign == $sign ? true : false;
