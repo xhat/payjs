@@ -147,6 +147,7 @@ class Payjs
             'header'      => ['User-Agent' => 'PAYJS Larevel Http Client'],
             'timeout'     => 10,
             'http_errors' => false,
+            'verify'      => false,
             'defaults'    => ['verify' => false],
         ]);
 
