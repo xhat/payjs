@@ -47,8 +47,7 @@ class Payjs
     {
         $this->url = $this->api_url_jsapi;
         $data      = $this->sign($data);
-        $url       = $this->url . '?' . http_build_query($data);
-        return $url;
+        return $this->post($data);
     }
 
     // 收银台模式
