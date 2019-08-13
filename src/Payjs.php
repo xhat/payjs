@@ -46,7 +46,6 @@ class Payjs
     public function jsapi(array $data)
     {
         $this->url = $this->api_url_jsapi;
-        $data      = $this->sign($data);
         return $this->post($data);
     }
 
