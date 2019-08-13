@@ -142,16 +142,21 @@ class Payjs
     public function post($data)
     {
         $data   = $this->sign($data);
-        $client = new \GuzzleHttp\Client([
-            'header'      => ['User-Agent' => 'PAYJS Larevel Http Client'],
-            'timeout'     => 10,
-            'http_errors' => false,
-            'verify'      => false,
-            'defaults'    => ['verify' => false],
-        ]);
 
-        $rst = $client->request('POST', $this->url, ['form_params' => $data]);
-        return json_decode($rst->getBody()->getContents(), true);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_URL, $this->url);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'HTTP CLIENT');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($data, true);
     }
 
 }
