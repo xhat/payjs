@@ -166,7 +166,9 @@ $notify_info = $payjs->notify();
 ```
 
 ## 更新日志
-Version 1.4.1
+Version 1.4.3
+主要去除了对 GuzzleHttp 包的依赖，同时去除了 Curl 60 的错误提示
+修复jsapi的一处bug
 
 ## 安全相关
 如果您在使用过程中发现各种 bug，请积极反馈，我会尽早修复
