@@ -102,6 +102,22 @@ $data = [
 $result = $payjs->jsapi($data);
 print_r($result);
 ```
+- H5 模式支付
+
+```php
+// 构造订单基础信息
+$data = [
+    'body'         => '订单测试',                 // 订单标题
+    'total_fee'    => 2,                         // 订单金额
+    'out_trade_no' => time(),                    // 订单号
+    'attach'       => 'test_order_attach',       // 订单附加信息(可选参数)
+    'notify_url'   => 'https://www.baidu.com',   // 异步通知地址(可选参数)
+    'callback_url' => 'https://www.qq.com',      // 前端跳转url(可选参数)
+];
+
+$result = $payjs->mweb($data);
+print_r($result);
+```
 
 - 查询订单
 
@@ -127,6 +143,18 @@ print_r($result);
 // 根据订单号退款
 $payjs_order_id = '*********************';
 $result = $payjs->refund($payjs_order_id);
+print_r($result);
+```
+
+- 投诉订单获取
+
+```php
+// 构造订单基础信息
+$data = [
+    'mchid'         => '123123',                 // 商户号
+];
+
+$result = $payjs->complaint($data);
 print_r($result);
 ```
 
@@ -166,6 +194,10 @@ $notify_info = $payjs->notify();
 ```
 
 ## 更新日志
+Version 1.5.0
+增加投诉API
+增加H5支付API
+
 Version 1.4.3
 主要去除了对 GuzzleHttp 包的依赖，同时去除了 Curl 60 的错误提示
 修复jsapi的一处bug
